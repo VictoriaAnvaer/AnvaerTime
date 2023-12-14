@@ -25,6 +25,21 @@ public class Time {
 
     }
 
+    public void add(Time time2) {
+        second = second + Integer.parseInt(time2.info().substring(6));
+        minute = minute + Integer.parseInt(time2.info().substring(3, 5));
+        hour = hour + Integer.parseInt(time2.info().substring(0, 2));
+        while (second > 59) {
+            second -= 60;
+            minute++;
+        } while (minute > 59) {
+            minute -= 60;
+            hour++;
+        } while (hour > 23) {
+            hour -= 24;
+        }
+    }
+
     public void add(String time2) {
         second = second + Integer.parseInt(time2.substring(6));
         minute = minute + Integer.parseInt(time2.substring(3, 5));
